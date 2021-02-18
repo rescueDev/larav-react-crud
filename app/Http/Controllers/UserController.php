@@ -38,4 +38,10 @@ class UserController extends Controller
         // dd($editUser);
         return $editUser->toJson();
     }
+    public function destroy($id)
+    {
+        User::destroy($id);
+
+        return response()->json('User Deleted', 200);
+    }
 }

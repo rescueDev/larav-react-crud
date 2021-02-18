@@ -70326,8 +70326,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function EditUser(props) {
   var history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["useHistory"])(); // console.log("edit", props);
 
-  var id = props.match.params.id;
-  console.log(id);
+  var id = props.match.params.id; // console.log(id);
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])({
     name: "",
@@ -70339,7 +70338,7 @@ function EditUser(props) {
 
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
     fetchUser();
-  }, []);
+  }, [user.id]);
 
   var fetchUser = function fetchUser() {
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/users/show/".concat(id)).then(function (res) {
@@ -70353,7 +70352,7 @@ function EditUser(props) {
   var editUserHandler = function editUserHandler(e) {
     e.preventDefault(); // console.log(user);
 
-    var editUser = user; //axios post call
+    var editUser = user; //axios put call
 
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.put("http://localhost:8000/api/user/".concat(id), editUser).then(function (res) {
       console.log(res);
@@ -70506,6 +70505,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function Users() {
+  var history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["useHistory"])();
+
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState2 = _slicedToArray(_useState, 2),
       users = _useState2[0],
@@ -70516,18 +70517,13 @@ function Users() {
       unmount = _useState4[0],
       setUnmount = _useState4[1];
 
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({}),
-      _useState6 = _slicedToArray(_useState5, 2),
-      user = _useState6[0],
-      setUser = _useState6[1];
-
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     //chiamata axios
     getUsers();
     return function () {
       setUnmount(true);
     };
-  }, []);
+  }, [users]);
 
   var getUsers = function getUsers() {
     if (users.length < 1) {
@@ -70538,14 +70534,17 @@ function Users() {
       });
     }
   };
-  /* const showUser = id => {
-      console.log(id);
-      axios.get(`/api/users/show/${id}`).then(res => {
-          setUser(res);
-          console.log("Data user", user);
-      });
-  }; */
 
+  var deleteUserHandler = function deleteUserHandler(id) {
+    // console.log(id);
+    axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"]("http://localhost:8000/api/users/delete/".concat(id)).then(function (res) {
+      return console.log("response", res);
+    });
+    var newList = users.filter(function (us) {
+      return us.id !== id;
+    });
+    setUsers(newList);
+  };
 
   var utenti = null;
 
@@ -70554,17 +70553,20 @@ function Users() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card mb-2 col-6  text-center mx-auto",
         key: user.id
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-        to: "users/show/".concat(user.id),
-        key: user.id
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-body"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, user.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, user.email), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        className: "card-body",
+        key: user.id
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        to: "users/show/".concat(user.id)
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, user.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, user.email)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: "users/edit/".concat(user.id),
         className: "btn btn-success mr-2"
       }, "EDIT"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          return deleteUserHandler(user.id);
+        },
         className: "btn btn-danger"
-      }, "DELETE"))));
+      }, "DELETE")));
     }));
   }
 

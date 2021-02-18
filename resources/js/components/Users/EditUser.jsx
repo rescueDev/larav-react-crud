@@ -7,13 +7,13 @@ function EditUser(props) {
     // console.log("edit", props);
     const { id } = props.match.params;
 
-    console.log(id);
+    // console.log(id);
 
     const [user, setUser] = useState({ name: "", email: "" });
 
     useEffect(() => {
         fetchUser();
-    }, []);
+    }, [user.id]);
 
     const fetchUser = () => {
         axios.get(`/api/users/show/${id}`).then(res => {
@@ -31,7 +31,7 @@ function EditUser(props) {
         // console.log(user);
 
         const editUser = user;
-        //axios post call
+        //axios put call
         axios
             .put(`http://localhost:8000/api/user/${id}`, editUser)
             .then(res => {
