@@ -23,7 +23,8 @@ Route::get('users', 'UserController@index');
 Route::post('user', 'UserController@store');
 Route::get('users/show/{id}', 'UserController@show');
 Route::get('users/create', 'UserController@create');
-Route::put('users/{id}', 'UserController@update');
+Route::get('users/edit/{id}, UserController@edit');
+Route::put('user/{id}', 'UserController@update');
 Route::delete('users/{id}', 'UserController@delete');
 
 //Posts

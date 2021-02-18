@@ -19,12 +19,23 @@ class UserController extends Controller
         // dd($user);
         return $user->toJson();
     }
-    public function create()
+    public function create($id)
     {
+        $user = User::findOrFail($id);
+        // dd($user);
+        return $user->toJson();
     }
     public function store(Request $request)
     {
 
         return User::create($request->all());
+    }
+    public function update(Request $request, $id)
+    {
+        // dd($request->all());
+        $editUser = User::findOrFail($id);
+        $editUser->update($request->all());
+        // dd($editUser);
+        return $editUser->toJson();
     }
 }

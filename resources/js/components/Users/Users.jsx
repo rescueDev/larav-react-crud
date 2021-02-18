@@ -51,6 +51,15 @@ function Users() {
                                 <div className="card-body">
                                     <h3>{user.name}</h3>
                                     <h3>{user.email}</h3>
+                                    <Link
+                                        to={`users/edit/${user.id}`}
+                                        className="btn btn-success mr-2"
+                                    >
+                                        EDIT
+                                    </Link>
+                                    <button className="btn btn-danger">
+                                        DELETE
+                                    </button>
                                 </div>
                             </Link>
                         </div>
