@@ -62,7 +62,7 @@ function Users() {
                                 </Link>
                                 <Link
                                     to={`users/edit/${user.id}`}
-                                    className="btn btn-success mr-2"
+                                    className="btn btn-primary mr-2"
                                 >
                                     EDIT
                                 </Link>
@@ -85,6 +85,12 @@ function Users() {
             <h1>Users</h1>
             <Link className="btn btn-success mt-2 mb-4" to="/users/create">
                 Create New User
+            </Link>
+            <Link
+                className="btn btn-warning ml-3 mt-2 mb-4"
+                to="/users/restore"
+            >
+                Restore User
             </Link>
             {utenti}
         </div>

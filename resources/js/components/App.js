@@ -9,6 +9,7 @@ import SingleUser from "./Users/SingleUser";
 import Passports from "./Passports/Passports";
 import Home from "./Home/Home";
 import EditUser from "./Users/EditUser";
+import RestoreUser from "./Users/RestoreUser";
 
 function App() {
     return (
@@ -25,6 +26,7 @@ function App() {
                 <Route exact path="/users/edit/:id" component={EditUser} />
 
                 <Route exact path="/users/create" component={CreateUser} />
+                <Route exact path="/users/restore" component={RestoreUser} />
 
                 <Route exact path="/user" component={CreateUser} />
 

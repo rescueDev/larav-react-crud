@@ -10,7 +10,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::all();
+        $users = User::orderBy('created_at', 'desc')->get();
         return $users->toJson();
     }
     public function show($id)
@@ -43,5 +43,16 @@ class UserController extends Controller
         User::destroy($id);
 
         return response()->json('User Deleted', 200);
+    }
+
+    public function restore(Request $request)
+    {
+        $data = $request->all();
+        // dd($data);
+        $name = $data['name'];
+        $email = $data['email'];
+
+        User::where([['name', $name], ['email', $email]])->restore();
+        return response()->json('User Restored');
     }
 }
