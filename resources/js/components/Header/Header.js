@@ -5,17 +5,17 @@ import { Link } from "react-router-dom";
 
 const Header = () => (
     <nav className="navbar navbar-expand-md navbar-light navbar-laravel">
-        <div className="container">
+        <div className="container ">
             <Link className="navbar-brand" to="/users">
-                Users
+                <h2 className="text-primary">Users</h2>
             </Link>
             <br />
             <Link className="navbar-brand" to="/passports">
-                Passport
+                <h2 className="text-primary">Passport</h2>
             </Link>
             <br />
             <Link className="navbar-brand" to="/posts">
-                Posts
+                <h2 className="text-primary">Posts</h2>
             </Link>
         </div>
     </nav>

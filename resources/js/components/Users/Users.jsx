@@ -52,7 +52,7 @@ function Users() {
                 {users.map(user => {
                     return (
                         <div
-                            className="card mb-2 col-6  text-center mx-auto"
+                            className="card mb-2 col-6 bg-light text-center mx-auto"
                             key={user.id}
                         >
                             <div className="card-body" key={user.id}>
@@ -81,7 +81,7 @@ function Users() {
     }
 
     return (
-        <div className="mt-3 col-sm-12 mx-auto text-center">
+        <div className="mt-3 col-sm-12  text-center">
             <h1>Users</h1>
             <Link className="btn btn-success mt-2 mb-4" to="/users/create">
                 Create New User

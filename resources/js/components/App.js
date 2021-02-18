@@ -14,8 +14,8 @@ import RestoreUser from "./Users/RestoreUser";
 function App() {
     return (
         <BrowserRouter>
-            <div className="card-header text-center">
-                React Js - Laravel CRUD
+            <div className="card-header bg-dark text-center">
+                <h1 className="text-info">React Js - Laravel CRUD</h1>
                 <Header></Header>
             </div>
 
