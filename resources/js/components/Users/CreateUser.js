@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+
 import axios from "axios";
 
 function CreateUser() {
+    const history = useHistory();
+
     const [errors, setErrors] = useState([]);
     const [newUser, setNewUser] = useState({ name: "", email: "" });
 
@@ -13,7 +17,8 @@ function CreateUser() {
         //axios post call
         axios.post("http://localhost:8000/api/user/", user).then(res => {
             console.log(res);
-            history.push("/");
+            const userId = res.data.id;
+            history.push(`/users/show/${userId}`);
         });
     };
 
