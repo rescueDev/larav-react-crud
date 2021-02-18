@@ -1,1 +1,3 @@
-larav-react-crud
+<strong>
+Simple CRUD using Laravel and React Js
+ </strong>
