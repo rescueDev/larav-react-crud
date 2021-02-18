@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 function EditUser(props) {
+    const history = useHistory();
     // console.log("edit", props);
     const { id } = props.match.params;
 
@@ -36,7 +38,7 @@ function EditUser(props) {
                 console.log(res);
                 const newUser = res.data;
                 setUser(newUser);
-                // history.push(`/users/show/${id}`);
+                history.push(`/users/show/${id}`);
             });
     };
 
