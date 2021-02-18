@@ -2,11 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function SingleUser(props) {
-    /* console.log(
-        "🚀 ~ file: SingleUser.js ~ line 5 ~ SingleUser ~ props",
-        props
-    ); */
     const [ut, setUt] = useState([]);
+    const [hasPass, setHasPass] = useState(true);
+
     var id = props.match.params.id;
     useEffect(() => {
         showSingleUser();
@@ -16,7 +14,7 @@ function SingleUser(props) {
         // console.log(id);
         axios.get(`/api/users/show/${id}`).then(res => {
             const response = res.data;
-            // console.log(response);
+            console.log("response Single User", res);
             setUt(response);
         });
     };
@@ -32,6 +30,14 @@ function SingleUser(props) {
                     <h3>Email: {ut.email}</h3>
                 </div>
             </div>
+            {ut.passport_number && ut.exp_date ? (
+                <div className="card-body">
+                    <div className="card-title">
+                        <h3>Pass Number: {ut.passport_number}</h3>
+                        <h3>Expiration Date: {ut.exp_date}</h3>
+                    </div>
+                </div>
+            ) : null}
         </div>
     );
 }

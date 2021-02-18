@@ -70543,14 +70543,15 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function SingleUser(props) {
-  /* console.log(
-      "🚀 ~ file: SingleUser.js ~ line 5 ~ SingleUser ~ props",
-      props
-  ); */
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState2 = _slicedToArray(_useState, 2),
       ut = _useState2[0],
       setUt = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true),
+      _useState4 = _slicedToArray(_useState3, 2),
+      hasPass = _useState4[0],
+      setHasPass = _useState4[1];
 
   var id = props.match.params.id;
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
@@ -70560,8 +70561,8 @@ function SingleUser(props) {
   var showSingleUser = function showSingleUser() {
     // console.log(id);
     axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/users/show/".concat(id)).then(function (res) {
-      var response = res.data; // console.log(response);
-
+      var response = res.data;
+      console.log("response Single User", res);
       setUt(response);
     });
   }; // console.log(ut);
@@ -70575,7 +70576,11 @@ function SingleUser(props) {
     className: "card-body"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-title"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Name: ", ut.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Email: ", ut.email))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Name: ", ut.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Email: ", ut.email))), ut.passport_number && ut.exp_date ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-body"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-title"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Pass Number: ", ut.passport_number), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Expiration Date: ", ut.exp_date))) : null);
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (SingleUser);

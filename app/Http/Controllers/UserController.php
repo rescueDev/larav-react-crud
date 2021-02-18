@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Passport;
+
 
 class UserController extends Controller
 {
@@ -11,13 +13,29 @@ class UserController extends Controller
     public function index()
     {
         $users = User::orderBy('created_at', 'desc')->get();
+
+
         return $users->toJson();
     }
     public function show($id)
     {
         $user = User::findOrFail($id);
+        $passport = $user->passport;
+        if (!$passport) {
+
+            return response()->json($user);
+        }
         // dd($user);
-        return $user->toJson();
+        // dd($passport['passport_number']);
+        return response()->json([
+            'name' => $user['name'],
+            'email' => $user['email'],
+
+            'passport_number' => $passport['passport_number'],
+            'exp_date' => $passport['exp_date'],
+            'country_code' => $passport['country_code'],
+
+        ]);
     }
     public function create($id)
     {
