@@ -13,6 +13,7 @@ function CreateUser() {
         //axios post call
         axios.post("http://localhost:8000/api/user/", user).then(res => {
             console.log(res);
+            history.push("/");
         });
     };
 

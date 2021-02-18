@@ -69921,7 +69921,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Users_CreateUser__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Users/CreateUser */ "./resources/js/components/Users/CreateUser.js");
 /* harmony import */ var _Users_SingleUser__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Users/SingleUser */ "./resources/js/components/Users/SingleUser.js");
 /* harmony import */ var _Passports_Passports__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Passports/Passports */ "./resources/js/components/Passports/Passports.jsx");
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+/* harmony import */ var _Home_Home__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Home/Home */ "./resources/js/components/Home/Home.jsx");
 
 
 
@@ -69938,13 +69938,12 @@ function App() {
     className: "card-header text-center"
   }, "React Js - Laravel CRUD", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header_Header__WEBPACK_IMPORTED_MODULE_4__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
+    path: "/",
+    component: _Home_Home__WEBPACK_IMPORTED_MODULE_9__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
     path: "/users",
-    component: _Users_Users__WEBPACK_IMPORTED_MODULE_3__["default"],
-    render: function render(props) {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Users_Users__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({}, props, {
-        id: id
-      }));
-    }
+    component: _Users_Users__WEBPACK_IMPORTED_MODULE_3__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/users/create",
@@ -70014,6 +70013,27 @@ var Header = function Header() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Header);
+
+/***/ }),
+
+/***/ "./resources/js/components/Home/Home.jsx":
+/*!***********************************************!*\
+  !*** ./resources/js/components/Home/Home.jsx ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function Home() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "This is the home page, welcome!!");
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Home);
 
 /***/ }),
 
@@ -70212,6 +70232,7 @@ function CreateUser() {
 
     axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("http://localhost:8000/api/user/", user).then(function (res) {
       console.log(res);
+      history.push("/");
     });
   };
 
@@ -70445,8 +70466,8 @@ function Users() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/salwo92/Documenti/laravel LC/laravel-one-to-one/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/salwo92/Documenti/laravel LC/laravel-one-to-one/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/salwo92/Documenti/laravel LC/larav-react-crud/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/salwo92/Documenti/laravel LC/larav-react-crud/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

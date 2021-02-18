@@ -7,6 +7,7 @@ import Posts from "./Posts/Posts";
 import CreateUser from "./Users/CreateUser";
 import SingleUser from "./Users/SingleUser";
 import Passports from "./Passports/Passports";
+import Home from "./Home/Home";
 
 function App() {
     return (
@@ -17,12 +18,9 @@ function App() {
             </div>
 
             <Switch>
-                <Route
-                    exact
-                    path="/users"
-                    component={Users}
-                    render={props => <Users {...props} id={id} />}
-                />
+                <Route exact path="/" component={Home} />
+
+                <Route exact path="/users" component={Users} />
 
                 <Route exact path="/users/create" component={CreateUser} />
 
