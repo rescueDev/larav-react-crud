@@ -69844,13 +69844,13 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./components/App */ "./resources/js/components/App.js");
 
-__webpack_require__(/*! ./components/Users/Users */ "./resources/js/components/Users/Users.js");
+__webpack_require__(/*! ./components/Users/Users */ "./resources/js/components/Users/Users.jsx");
 
-__webpack_require__(/*! ./components/Users/CreateUser */ "./resources/js/components/Users/CreateUser.js");
+__webpack_require__(/*! ./components/Users/CreateUser */ "./resources/js/components/Users/CreateUser.jsx");
 
-__webpack_require__(/*! ./components/Users/SingleUser */ "./resources/js/components/Users/SingleUser.js");
+__webpack_require__(/*! ./components/Users/SingleUser */ "./resources/js/components/Users/SingleUser.jsx");
 
-__webpack_require__(/*! ./components/Posts/Posts */ "./resources/js/components/Posts/Posts.js");
+__webpack_require__(/*! ./components/Posts/Posts */ "./resources/js/components/Posts/Posts.jsx");
 
 __webpack_require__(/*! ./components/Passports/Passports */ "./resources/js/components/Passports/Passports.jsx");
 
@@ -69915,11 +69915,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _Users_Users__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Users/Users */ "./resources/js/components/Users/Users.js");
+/* harmony import */ var _Users_Users__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Users/Users */ "./resources/js/components/Users/Users.jsx");
 /* harmony import */ var _Header_Header__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Header/Header */ "./resources/js/components/Header/Header.js");
-/* harmony import */ var _Posts_Posts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Posts/Posts */ "./resources/js/components/Posts/Posts.js");
-/* harmony import */ var _Users_CreateUser__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Users/CreateUser */ "./resources/js/components/Users/CreateUser.js");
-/* harmony import */ var _Users_SingleUser__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Users/SingleUser */ "./resources/js/components/Users/SingleUser.js");
+/* harmony import */ var _Posts_Posts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Posts/Posts */ "./resources/js/components/Posts/Posts.jsx");
+/* harmony import */ var _Users_CreateUser__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Users/CreateUser */ "./resources/js/components/Users/CreateUser.jsx");
+/* harmony import */ var _Users_SingleUser__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Users/SingleUser */ "./resources/js/components/Users/SingleUser.jsx");
 /* harmony import */ var _Passports_Passports__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Passports/Passports */ "./resources/js/components/Passports/Passports.jsx");
 /* harmony import */ var _Home_Home__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Home/Home */ "./resources/js/components/Home/Home.jsx");
 
@@ -70105,10 +70105,10 @@ function Passports() {
 
 /***/ }),
 
-/***/ "./resources/js/components/Posts/Posts.js":
-/*!************************************************!*\
-  !*** ./resources/js/components/Posts/Posts.js ***!
-  \************************************************/
+/***/ "./resources/js/components/Posts/Posts.jsx":
+/*!*************************************************!*\
+  !*** ./resources/js/components/Posts/Posts.jsx ***!
+  \*************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -70177,10 +70177,10 @@ function Posts() {
 
 /***/ }),
 
-/***/ "./resources/js/components/Users/CreateUser.js":
-/*!*****************************************************!*\
-  !*** ./resources/js/components/Users/CreateUser.js ***!
-  \*****************************************************/
+/***/ "./resources/js/components/Users/CreateUser.jsx":
+/*!******************************************************!*\
+  !*** ./resources/js/components/Users/CreateUser.jsx ***!
+  \******************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -70281,10 +70281,10 @@ function CreateUser() {
 
 /***/ }),
 
-/***/ "./resources/js/components/Users/SingleUser.js":
-/*!*****************************************************!*\
-  !*** ./resources/js/components/Users/SingleUser.js ***!
-  \*****************************************************/
+/***/ "./resources/js/components/Users/SingleUser.jsx":
+/*!******************************************************!*\
+  !*** ./resources/js/components/Users/SingleUser.jsx ***!
+  \******************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -70349,10 +70349,10 @@ function SingleUser(props) {
 
 /***/ }),
 
-/***/ "./resources/js/components/Users/Users.js":
-/*!************************************************!*\
-  !*** ./resources/js/components/Users/Users.js ***!
-  \************************************************/
+/***/ "./resources/js/components/Users/Users.jsx":
+/*!*************************************************!*\
+  !*** ./resources/js/components/Users/Users.jsx ***!
+  \*************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -70363,8 +70363,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _CreateUser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CreateUser */ "./resources/js/components/Users/CreateUser.js");
-/* harmony import */ var _SingleUser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SingleUser */ "./resources/js/components/Users/SingleUser.js");
+/* harmony import */ var _CreateUser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CreateUser */ "./resources/js/components/Users/CreateUser.jsx");
+/* harmony import */ var _SingleUser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SingleUser */ "./resources/js/components/Users/SingleUser.jsx");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
