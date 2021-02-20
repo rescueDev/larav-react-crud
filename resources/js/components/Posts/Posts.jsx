@@ -1,4 +1,11 @@
 import React, { useState, useEffect } from "react";
+import {
+    BrowserRouter,
+    Route,
+    Switch,
+    Link,
+    useHistory
+} from "react-router-dom";
 import axios from "axios";
 
 function Posts() {
@@ -45,6 +52,15 @@ function Posts() {
     return (
         <div className="text-center mb-3 mt-3">
             <h1>POSTS</h1>
+            <Link className="btn btn-success mt-2 mb-4" to="/posts/create">
+                Create New Post
+            </Link>
+            <Link
+                className="btn btn-warning ml-3 mt-2 mb-4"
+                to="/posts/restore"
+            >
+                Restore Post
+            </Link>
             {ps}
         </div>
     );

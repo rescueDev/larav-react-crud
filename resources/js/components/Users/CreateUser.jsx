@@ -7,7 +7,12 @@ function CreateUser() {
     const history = useHistory();
 
     const [errors, setErrors] = useState([]);
-    const [newUser, setNewUser] = useState({ name: "", email: "" });
+    const [newUser, setNewUser] = useState({
+        name: "",
+        email: "",
+        password: ""
+    });
+    const [hidePass, setHidePass] = useState(true);
 
     const createUserHandler = e => {
         e.preventDefault();
@@ -32,20 +37,55 @@ function CreateUser() {
         // console.log(newUser);
     };
 
+    const passVisibilityHandler = e => {
+        e.preventDefault();
+
+        // console.log("pass");
+        setHidePass(pass => !pass);
+    };
+
     return (
         <form className="col-sm-6 mx-auto" onSubmit={createUserHandler}>
             <div className="form-group text-center">
-                <label htmlFor="name">Name:</label>
+                <label className="text-white" htmlFor="name">
+                    Name:
+                </label>
                 <input
-                    placeholder="Inser Name"
+                    placeholder="Insert Name"
                     type="text"
                     name="name"
-                    className="form-control"
+                    className="form-control mb-2"
                     onChange={handleChange}
                     value={newUser.name}
                 />
 
-                <label htmlFor="email">Email:</label>
+                <label className="text-white align-middle" htmlFor="password">
+                    Password:
+                </label>
+                <div className="input-group mb-2 ">
+                    <input
+                        placeholder="Insert Password"
+                        type={hidePass ? "password" : "text"}
+                        name="password"
+                        className="form-control"
+                        onChange={handleChange}
+                        value={newUser.password}
+                    />
+                    <div className="input-group-append">
+                        <button
+                            className={
+                                hidePass ? "btn btn-primary" : "btn btn-danger"
+                            }
+                            onClick={passVisibilityHandler}
+                        >
+                            {hidePass ? "Show" : "Hide"}
+                        </button>
+                    </div>
+                </div>
+
+                <label className="text-white" htmlFor="email">
+                    Email:
+                </label>
                 <input
                     placeholder="Insert email"
                     type="email"

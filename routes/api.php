@@ -31,8 +31,13 @@ Route::post('user/restore', 'UserController@restore');
 
 //Posts
 Route::get('posts', 'PostController@index');
-Route::post('posts', 'PostController@store');
-Route::get('posts/{id}', 'PostController@show');
+Route::post('post', 'PostController@store');
+Route::get('posts/show/{id}', 'PostController@show');
+Route::get('posts/create', 'PostController@create');
+Route::get('posts/edit/{id}, PostController@edit');
+Route::put('post/{id}', 'PostController@update');
+Route::delete('posts/delete/{id}', 'PostController@destroy');
+Route::post('post/restore', 'PostController@restore');
 
 //Passports
 Route::get('passports', 'PassportController@index');

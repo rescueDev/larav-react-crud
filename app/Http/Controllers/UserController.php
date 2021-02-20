@@ -25,8 +25,7 @@ class UserController extends Controller
 
             return response()->json($user);
         }
-        // dd($user);
-        // dd($passport['passport_number']);
+
         return response()->json([
             'name' => $user['name'],
             'email' => $user['email'],

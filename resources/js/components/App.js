@@ -10,6 +10,7 @@ import Passports from "./Passports/Passports";
 import Home from "./Home/Home";
 import EditUser from "./Users/EditUser";
 import RestoreUser from "./Users/RestoreUser";
+import CreatePost from "./Posts/CreatePost";
 
 function App() {
     return (
@@ -40,6 +41,8 @@ function App() {
                     path="/passports/show/:id"
                     component={SingleUser}
                 />
+
+                <Route exact path="/posts/create" component={CreatePost} />
             </Switch>
         </BrowserRouter>
     );

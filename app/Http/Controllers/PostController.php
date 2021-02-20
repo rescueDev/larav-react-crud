@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -23,9 +24,12 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $users = User::all();
+        $post = Post::findOrFail($id);
+        // dd($post);
+        return $post->toJson();
     }
 
     /**
@@ -36,7 +40,19 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $users = User::all();
+        $data = $request->all();
+        $user = $post->user;
+        // dd($user);
+        $post = Post::create($data);
+        return response()->json([
+            'name' => $user['name'],
+            'email' => $user['email'],
+
+            'title' => $post['title'],
+            'post_content' => $post['post_content'],
+
+        ]);
     }
 
     /**
@@ -68,9 +84,12 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $id)
     {
-        //
+        $editPost = Post::findOrFail($id);
+        $editPost->update($request->all());
+        // dd($editPost);
+        return $editPost->toJson();
     }
 
     /**
@@ -79,8 +98,10 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
-        //
+        Post::destroy($id);
+
+        return response()->json('Post Deleted', 200);
     }
 }
