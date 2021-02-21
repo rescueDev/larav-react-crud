@@ -42,6 +42,18 @@ function Posts() {
                                 <h4>{post.post_content}</h4>
                                 <h3>Likes: {post.likes}</h3>
                                 <h3>User: {post.user.name}</h3>
+                                <Link
+                                    to={`posts/edit/${post.id}`}
+                                    className="btn btn-primary mr-2"
+                                >
+                                    EDIT
+                                </Link>
+                                <button
+                                    onClick={() => deletePostHandler(post.id)}
+                                    className="btn btn-danger"
+                                >
+                                    DELETE
+                                </button>
                             </div>
                         </div>
                     );

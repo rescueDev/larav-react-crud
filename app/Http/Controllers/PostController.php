@@ -69,9 +69,10 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        return $post->toJson();
     }
 
     /**
@@ -80,9 +81,10 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        dd($data);
     }
 
     /**

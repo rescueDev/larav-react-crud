@@ -11,6 +11,7 @@ import Home from "./Home/Home";
 import EditUser from "./Users/EditUser";
 import RestoreUser from "./Users/RestoreUser";
 import CreatePost from "./Posts/CreatePost";
+import EditPost from "./Posts/EditPost";
 
 function App() {
     return (
@@ -34,6 +35,8 @@ function App() {
                 <Route exact path="/users/show/:id" component={SingleUser} />
 
                 <Route exact path="/posts" component={Posts} />
+
+                <Route exact path="/posts/edit/:id" component={EditPost} />
 
                 <Route exact path="/passports" component={Passports} />
                 <Route

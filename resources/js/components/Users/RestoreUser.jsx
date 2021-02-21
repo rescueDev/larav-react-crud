@@ -23,7 +23,7 @@ function RestoreUser() {
     };
 
     return (
-        <div className="card  text-center">
+        <div className="card col-sm-6 mx-auto text-center mt-5">
             <h2 className="card-title">Restore User</h2>
 
             <form className="col-sm-6 mx-auto" onSubmit={restoreHandler}>

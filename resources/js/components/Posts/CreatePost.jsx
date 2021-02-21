@@ -51,26 +51,6 @@ function CreatePost() {
         console.log("nuovo post", newPost);
     };
 
-    /*     const handleSelect = e => {
-        console.log("selected change");
-        setNewPost({ ...newPost, [name]: value });
-    }; */
-
-    /*     var utenti = null;
-    if (users.length > 0) {
-        utenti = (
-            <>
-                {users.map(user => {
-                    return (
-                        <option key={user.id} value={user.id}>
-                            {user.name}
-                        </option>
-                    );
-                })}
-            </>
-        );
-    } */
-
     return (
         <form className="col-sm-6 mx-auto" onSubmit={createPostHandler}>
             <div className="form-group text-center">
@@ -107,7 +87,7 @@ function CreatePost() {
                 </label>
                 <select
                     name="user_id"
-                    id=""
+                    className="browser-default custom-select"
                     value={users.user_id}
                     onChange={handleChange}
                 >
