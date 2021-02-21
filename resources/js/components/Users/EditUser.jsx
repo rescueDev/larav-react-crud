@@ -13,7 +13,7 @@ function EditUser(props) {
 
     useEffect(() => {
         fetchUser();
-    }, [user.id]);
+    }, []);
 
     const fetchUser = () => {
         axios.get(`/api/users/show/${id}`).then(res => {
@@ -75,7 +75,7 @@ function EditUser(props) {
                     onChange={handleChange}
                 />
 
-                <input type="submit" v className="btn btn-success mt-2" />
+                <input type="submit" className="btn btn-success mt-2" />
             </div>
         </form>
     );

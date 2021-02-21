@@ -15,8 +15,21 @@ class PostController extends Controller
      */
     public function index()
     {
+
         $posts = Post::all();
-        return $posts->toJson();
+
+        // $users = [];
+        $linked = [];
+        foreach ($posts as $post) {
+            $user = $post->user;
+
+            // $users[] = $user;
+            $linked[] =  $post->user()->associate($user);
+        }
+
+        // dd($linked);
+
+        return response()->json($linked);
     }
 
     /**
@@ -26,7 +39,6 @@ class PostController extends Controller
      */
     public function create($id)
     {
-        $users = User::all();
         $post = Post::findOrFail($id);
         // dd($post);
         return $post->toJson();
@@ -40,19 +52,15 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $users = User::all();
+
         $data = $request->all();
-        $user = $post->user;
-        // dd($user);
-        $post = Post::create($data);
-        return response()->json([
-            'name' => $user['name'],
-            'email' => $user['email'],
+        $user = User::findOrFail($data['user_id']);
+        $post = Post::make($data);
+        $post->user()->associate($user);
+        $post->save();
 
-            'title' => $post['title'],
-            'post_content' => $post['post_content'],
-
-        ]);
+        // dd($post->user_id);
+        return $post->toJson();
     }
 
     /**

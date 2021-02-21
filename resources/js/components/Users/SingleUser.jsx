@@ -37,7 +37,13 @@ function SingleUser(props) {
                         <h3>Expiration Date: {ut.exp_date}</h3>
                     </div>
                 </div>
-            ) : null}
+            ) : (
+                <div className="card-body mt-2">
+                    <div className="card-title">
+                        <h3>No passport </h3>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

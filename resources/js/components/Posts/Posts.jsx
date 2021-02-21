@@ -41,6 +41,7 @@ function Posts() {
                                 <h2>{post.title}</h2>
                                 <h4>{post.post_content}</h4>
                                 <h3>Likes: {post.likes}</h3>
+                                <h3>User: {post.user.name}</h3>
                             </div>
                         </div>
                     );

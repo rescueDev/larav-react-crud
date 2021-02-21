@@ -70173,8 +70173,8 @@ function CreatePost() {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
     title: "",
     post_content: "",
-    likes: "",
-    user_id: ""
+    likes: 0,
+    user_id: null
   }),
       _useState2 = _slicedToArray(_useState, 2),
       newPost = _useState2[0],
@@ -70216,18 +70216,28 @@ function CreatePost() {
     var name = e.target.name;
     var value = e.target.value;
     setNewPost(_objectSpread(_objectSpread({}, newPost), {}, _defineProperty({}, name, value)));
+    console.log("nuovo post", newPost);
   };
+  /*     const handleSelect = e => {
+      console.log("selected change");
+      setNewPost({ ...newPost, [name]: value });
+  }; */
 
-  var utenti = null;
-
+  /*     var utenti = null;
   if (users.length > 0) {
-    utenti = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, users.map(function (user) {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        key: user.id,
-        value: user.id
-      }, user.name);
-    }));
-  }
+      utenti = (
+          <>
+              {users.map(user => {
+                  return (
+                      <option key={user.id} value={user.id}>
+                          {user.name}
+                      </option>
+                  );
+              })}
+          </>
+      );
+  } */
+
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     className: "col-sm-6 mx-auto",
@@ -70258,11 +70268,18 @@ function CreatePost() {
     value: newPost.post_content
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     className: "text-white mr-2",
-    htmlFor: "users"
+    htmlFor: "user_id"
   }, "Pick a User:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-    name: "users",
-    id: ""
-  }, utenti), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    name: "user_id",
+    id: "",
+    value: users.user_id,
+    onChange: handleChange
+  }, users.map(function (user) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      key: user.id,
+      value: user.id
+    }, user.name);
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "submit",
     value: "Create",
     className: "btn btn-success mt-2"
@@ -70334,7 +70351,7 @@ function Posts() {
         key: post.id
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, post.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, post.post_content), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Likes: ", post.likes)));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, post.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, post.post_content), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Likes: ", post.likes), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "User: ", post.user.name)));
     }));
   }
 
@@ -70541,7 +70558,7 @@ function EditUser(props) {
 
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
     fetchUser();
-  }, [user.id]);
+  }, []);
 
   var fetchUser = function fetchUser() {
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/users/show/".concat(id)).then(function (res) {
@@ -70596,7 +70613,6 @@ function EditUser(props) {
     onChange: handleChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
     type: "submit",
-    v: true,
     className: "btn btn-success mt-2"
   })));
 }
@@ -70769,7 +70785,11 @@ function SingleUser(props) {
     className: "card-body"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-title"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Pass Number: ", ut.passport_number), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Expiration Date: ", ut.exp_date))) : null);
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Pass Number: ", ut.passport_number), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Expiration Date: ", ut.exp_date))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-body mt-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-title"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "No passport "))));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (SingleUser);

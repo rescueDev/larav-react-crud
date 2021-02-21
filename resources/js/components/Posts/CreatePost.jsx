@@ -7,8 +7,8 @@ function CreatePost() {
     const [newPost, setNewPost] = useState({
         title: "",
         post_content: "",
-        likes: "",
-        user_id: ""
+        likes: 0,
+        user_id: null
     });
 
     const [users, setUsers] = useState([]);
@@ -48,9 +48,15 @@ function CreatePost() {
         const value = e.target.value;
 
         setNewPost({ ...newPost, [name]: value });
+        console.log("nuovo post", newPost);
     };
 
-    var utenti = null;
+    /*     const handleSelect = e => {
+        console.log("selected change");
+        setNewPost({ ...newPost, [name]: value });
+    }; */
+
+    /*     var utenti = null;
     if (users.length > 0) {
         utenti = (
             <>
@@ -63,7 +69,7 @@ function CreatePost() {
                 })}
             </>
         );
-    }
+    } */
 
     return (
         <form className="col-sm-6 mx-auto" onSubmit={createPostHandler}>
@@ -96,11 +102,22 @@ function CreatePost() {
                         value={newPost.post_content}
                     />
                 </div>
-                <label className="text-white mr-2" htmlFor="users">
+                <label className="text-white mr-2" htmlFor="user_id">
                     Pick a User:
                 </label>
-                <select name="users" id="">
-                    {utenti}
+                <select
+                    name="user_id"
+                    id=""
+                    value={users.user_id}
+                    onChange={handleChange}
+                >
+                    {users.map(user => {
+                        return (
+                            <option key={user.id} value={user.id}>
+                                {user.name}
+                            </option>
+                        );
+                    })}
                 </select>
 
                 <br />
