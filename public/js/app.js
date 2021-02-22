@@ -70481,7 +70481,7 @@ function Posts() {
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     //chiamata axios
-    console.log("axios call");
+    // console.log(posts.user.name);
     getPosts();
   }, []);
 
@@ -70605,6 +70605,11 @@ function RestorePost() {
       restorePost = _useState2[0],
       setRestorePost = _useState2[1];
 
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      adRestore = _useState4[0],
+      setAdRestore = _useState4[1];
+
   var handleChange = function handleChange(e) {
     var name = e.target.name;
     var value = e.target.value;
@@ -70618,12 +70623,15 @@ function RestorePost() {
     axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("http://localhost:8000/api/posts/restore", restorePost).then(function (res) {
       return console.log(res);
     });
-    history.push("/posts");
+    setAdRestore(true);
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card col-sm-6 mx-auto text-center mt-5"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+  }, adRestore ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Post restored"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+    to: "/users",
+    className: "btn btn-primary"
+  }, "Back to posts")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "card-title"
   }, "Restore Post"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     className: "col-sm-6 mx-auto",
@@ -70652,7 +70660,7 @@ function RestorePost() {
     type: "submit",
     value: "Restore",
     className: "btn btn-success mt-2"
-  }))));
+  })))));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (RestorePost);
@@ -70957,6 +70965,11 @@ function RestoreUser() {
       restoreUser = _useState2[0],
       setRestoreUser = _useState2[1];
 
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      adRestore = _useState4[0],
+      setAdRestore = _useState4[1];
+
   var handleChange = function handleChange(e) {
     var name = e.target.name;
     var value = e.target.value;
@@ -70970,12 +70983,15 @@ function RestoreUser() {
     axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("http://localhost:8000/api/user/restore", restoreUser).then(function (res) {
       return console.log(res);
     });
-    history.push("/users");
+    setAdRestore(true);
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card col-sm-6 mx-auto text-center mt-5"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+  }, adRestore ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "User Restored !!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/users",
+    className: "btn btn-primary"
+  }, "Back to users")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "card-title"
   }, "Restore User"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     className: "col-sm-6 mx-auto",
@@ -71004,7 +71020,7 @@ function RestoreUser() {
     type: "submit",
     value: "Restore",
     className: "btn btn-success mt-2"
-  }))));
+  })))));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (RestoreUser);
@@ -71127,7 +71143,7 @@ function Users() {
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     //chiamata axios
     getUsers();
-  }, [users.id]);
+  }, []);
 
   var getUsers = function getUsers() {
     if (users.length < 1) {

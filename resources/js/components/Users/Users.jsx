@@ -15,7 +15,7 @@ function Users() {
         //chiamata axios
 
         getUsers();
-    }, [users.id]);
+    }, []);
 
     const getUsers = () => {
         if (users.length < 1) {

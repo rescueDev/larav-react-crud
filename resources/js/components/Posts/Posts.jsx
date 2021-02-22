@@ -14,7 +14,7 @@ function Posts() {
 
     useEffect(() => {
         //chiamata axios
-        console.log("axios call");
+        // console.log(posts.user.name);
         getPosts();
     }, []);
 
