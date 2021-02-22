@@ -37,7 +37,8 @@ Route::get('posts/create', 'PostController@create');
 Route::get('posts/edit/{id}, PostController@edit');
 Route::put('post/{id}', 'PostController@update');
 Route::delete('posts/delete/{id}', 'PostController@destroy');
-Route::post('post/restore', 'PostController@restore');
+Route::post('posts/restore', 'PostController@restore');
+Route::patch('posts/likes/{id}', 'PostController@putLikes');
 
 //Passports
 Route::get('passports', 'PassportController@index');

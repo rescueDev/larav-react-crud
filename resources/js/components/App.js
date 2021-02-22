@@ -12,6 +12,7 @@ import EditUser from "./Users/EditUser";
 import RestoreUser from "./Users/RestoreUser";
 import CreatePost from "./Posts/CreatePost";
 import EditPost from "./Posts/EditPost";
+import RestorePost from "./Posts/RestorePost";
 
 function App() {
     return (
@@ -37,6 +38,7 @@ function App() {
                 <Route exact path="/posts" component={Posts} />
 
                 <Route exact path="/posts/edit/:id" component={EditPost} />
+                <Route exact path="/posts/restore/" component={RestorePost} />
 
                 <Route exact path="/passports" component={Passports} />
                 <Route

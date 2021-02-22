@@ -9,19 +9,13 @@ import {
 } from "react-router-dom";
 
 function Users() {
-    const history = useHistory();
-
     const [users, setUsers] = useState([]);
-    const [unmount, setUnmount] = useState(false);
 
     useEffect(() => {
         //chiamata axios
 
         getUsers();
-        return () => {
-            setUnmount(true);
-        };
-    }, [users]);
+    }, [users.id]);
 
     const getUsers = () => {
         if (users.length < 1) {

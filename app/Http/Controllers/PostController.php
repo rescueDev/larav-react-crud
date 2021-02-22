@@ -114,4 +114,27 @@ class PostController extends Controller
 
         return response()->json('Post Deleted', 200);
     }
+
+    public function restore(Request $request)
+    {
+        $data = $request->all();
+        $title = $data['title'];
+        $user_id = $data['user_id'];
+
+        Post::where([['title', $title], ['user_id', $user_id]])->restore();
+        return response()->json('Post Restored');
+    }
+
+    public function putLikes($id)
+    {
+
+        $post = Post::findOrFail($id);
+
+        $add = $post->likes + 1;
+        $post->update(['likes' => $add]);
+
+        // dd($post);
+
+        return $post->toJson();
+    }
 }
